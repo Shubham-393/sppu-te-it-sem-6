@@ -17,7 +17,8 @@ This repository contains all practicals for Semester 6 (TE IT) under **SPPU (Sav
 
 
 👉 [Download Packet Tracer (Official)](https://www.netacad.com/portal/resources/packet-tracer)
-👉 [Download Packet Tracer ](https://drive.google.com/file/d/13P4BKXefrdRjNanEsAGAwYr9MCmHoz7A/view?usp=drive_link)
+
+👉 [Download Packet Tracer (DRIVE) ](https://drive.google.com/file/d/13P4BKXefrdRjNanEsAGAwYr9MCmHoz7A/view?usp=drive_link)
 ---
 
 ## ✅ How to Clone
