@@ -1,0 +1,28 @@
+package wordcount2;
+
+import java.io.IOException;
+import java.util.StringTokenizer;
+
+import org.apache.hadoop.io.IntWritable;
+import org.apache.hadoop.io.Text;
+import org.apache.hadoop.mapreduce.Mapper;
+
+public class MyMapper extends Mapper<Object, Text, Text, IntWritable> {
+
+    // Define the IntWritable variable for the output value
+    private final static IntWritable one = new IntWritable(1);
+    private Text ipAddress = new Text();
+
+    public void map(Object offset, Text value, Context context) throws IOException, InterruptedException {
+
+        // Split the line into tokens by spaces
+        StringTokenizer tokenizer = new StringTokenizer(value.toString(), " ");
+
+        // The first token is the IP address, so extract it
+        if (tokenizer.hasMoreTokens()) {
+            ipAddress.set(tokenizer.nextToken());  // Set the IP address as key
+            context.write(ipAddress, one);  // Write the key (IP address) and value (1)
+        }
+    }
+}
+

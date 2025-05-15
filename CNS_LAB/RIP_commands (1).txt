@@ -1,0 +1,7 @@
+RIP Routes for Router0 are given below:
+1) enable
+2) config terminal
+3)Router(config)#router rip
+4)Router(config-router)#version 2
+4)Router(config-router)#network 192.168.10.0
+5)Router(config-router)#network 10.0.0.0

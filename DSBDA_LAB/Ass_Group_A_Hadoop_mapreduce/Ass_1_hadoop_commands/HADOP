@@ -1,0 +1,112 @@
+hduser@student-ThinkCentre-M700:~$ start-dfs.sh
+Starting namenodes on [localhost]
+Starting datanodes
+Starting secondary namenodes [student-ThinkCentre-M700]
+2025-03-18 13:43:36,441 WARN util.NativeCodeLoader: Unable to load native-hadoop library for your platform... using builtin-java classes where applicable
+
+hduser@student-ThinkCentre-M700:~$ start-yarn.sh
+Starting resourcemanager
+Starting nodemanagers
+
+hduser@student-ThinkCentre-M700:~$ jps
+5169 SecondaryNameNode
+5474 ResourceManager
+4996 DataNode
+4854 NameNode
+5946 Jps
+5614 NodeManager
+
+hduser@student-ThinkCentre-M700:~$ hdfs dfs -ls /
+2025-03-18 13:46:50,519 WARN util.NativeCodeLoader: Unable to load native-hadoop library for your platform... using builtin-java classes where applicable
+Found 3 items
+drwxr-xr-x   - hduser supergroup          0 2024-05-09 12:39 /Adi14
+drwxrwxrwx   - hduser supergroup          0 2023-04-24 13:46 /tmp
+drwxr-xr-x   - hduser supergroup          0 2023-04-24 13:46 /user
+hduser@student-ThinkCentre-M700:~$ hdfs dfs -mkdir / teit
+
+hduser@student-ThinkCentre-M700:~$ hdfs dfs -mkdir /teit
+2025-03-18 13:48:34,775 WARN util.NativeCodeLoader: Unable to load native-hadoop library for your platform... using builtin-java classes where applicable
+
+hduser@student-ThinkCentre-M700:~$ hdfs dfs -put /home/hduser/DS-BDA/test.txt /teit/
+2025-03-18 13:56:41,100 WARN util.NativeCodeLoader: Unable to load native-hadoop library for your platform... using builtin-java classes where applicable
+
+
+hduser@student-ThinkCentre-M700:~$ hdfs dfs -appendToFile /home/hduser/DS-BDA/test2.txt /teit/test.txt 
+2025-03-18 14:05:26,456 WARN util.NativeCodeLoader: Unable to load native-hadoop library for your platform... using builtin-java classes where applicable
+
+hduser@student-ThinkCentre-M700:~$ hdfs dfs -cat /teit/test.txt
+2025-03-18 14:08:59,306 WARN util.NativeCodeLoader: Unable to load native-hadoop library for your platform... using builtin-java classes where applicable
+Hello everyone welcome to hadoop 
+My name is Vidyasagar Anil Jalkote
+
+
+hduser@student-ThinkCentre-M700:~$ hdfs dfs -get /teit/test.txt/ /home/hduser
+2025-03-18 14:13:42,588 WARN util.NativeCodeLoader: Unable to load native-hadoop library for your platform... using builtin-java classes where applicable
+
+
+duser@student-ThinkCentre-M700:~$ hdfs dfs -copyFromLocal /home/hduser/DS-BDA/test2.txt /teit/
+2025-03-18 14:16:34,662 WARN util.NativeCodeLoader: Unable to load native-hadoop library for your platform... using builtin-java classes where applicable
+
+hduser@student-ThinkCentre-M700:~$ hdfs dfs -copyToLocal /teit/test2.txt/ /home/hduser
+2025-03-18 14:19:42,106 WARN util.NativeCodeLoader: Unable to load native-hadoop library for your platform... using builtin-java classes where applicable
+
+hduser@student-ThinkCentre-M700:~$ hdfs dfs -mv /teit/ /seit/
+2025-03-18 14:22:41,618 WARN util.NativeCodeLoader: Unable to load native-hadoop library for your platform... using builtin-java classes where applicable
+
+hduser@student-ThinkCentre-M700:~$ hdfs dfs -mv /seit/teit/test.txt/ /seit/
+2025-03-18 14:24:06,661 WARN util.NativeCodeLoader: Unable to load native-hadoop library for your platform... using builtin-java classes where applicable
+
+
+hduser@student-ThinkCentre-M700:~$ hdfs dfs -count /seit/teit/
+2025-03-18 14:28:38,870 WARN util.NativeCodeLoader: Unable to load native-hadoop library for your platform... using builtin-java classes where applicable
+           1            1                 35 /seit/teit
+           
+hduser@student-ThinkCentre-M700:~$ hdfs dfs -head /seit/teit/test2.txt/
+2025-03-18 14:33:41,691 WARN util.NativeCodeLoader: Unable to load native-hadoop library for your platform... using builtin-java classes where applicable
+My name is Vidyasagar Anil Jalkote
+
+hduser@student-ThinkCentre-M700:~$ hdfs dfs -tail /seit/teit/test2.txt/
+2025-03-18 14:34:46,473 WARN util.NativeCodeLoader: Unable to load native-hadoop library for your platform... using builtin-java classes where applicable
+My name is Vidyasagar Anil Jalkote
+
+
+
+hduser@student-ThinkCentre-M700:~$ hdfs dfs -stat /seit/teit/test2.txt/
+2025-03-18 14:36:51,600 WARN util.NativeCodeLoader: Unable to load native-hadoop library for your platform... using builtin-java classes where applicable
+2025-03-18 08:46:35
+
+
+hduser@student-ThinkCentre-M700:~$ hdfs dfs -touch /seit/teit/test2.txt/
+2025-03-18 14:38:22,482 WARN util.NativeCodeLoader: Unable to load native-hadoop library for your platform... using builtin-java classes where applicable
+
+hduser@student-ThinkCentre-M700:~$ hdfs dfs -touch /seit/teit/vaj.txt
+2025-03-18 14:39:54,598 WARN util.NativeCodeLoader: Unable to load native-hadoop library for your platform... using builtin-java classes where applicable
+
+
+hduser@student-ThinkCentre-M700:~$ hdfs dfs -rm /seit/teit/vaj.txt
+2025-03-18 14:42:48,122 WARN util.NativeCodeLoader: Unable to load native-hadoop library for your platform... using builtin-java classes where applicable
+Deleted /seit/teit/vaj.txt
+
+hduser@student-ThinkCentre-M700:~$ hdfs dfs -rmdir /seit/teit/
+2025-03-18 14:46:02,694 WARN util.NativeCodeLoader: Unable to load native-hadoop library for your platform... using builtin-java classes where applicable
+-----------------------------------------------------------------------------
+
+hadoop@pvg:~/Desktop/DSBDA/ipcount$ hdfs dfs -ls /teit
+Found 2 items
+-rw-r--r--   1 hadoop supergroup          0 2025-04-21 14:26 /teit/test1.txt
+-rw-r--r--   1 hadoop supergroup          0 2025-04-21 14:26 /teit/test2.txt
+hadoop@pvg:~/Desktop/DSBDA/ipcount$ hdfs dfs -ls /teit/test1.txt
+-rw-r--r--   1 hadoop supergroup          0 2025-04-21 14:26 /teit/test1.txt
+hadoop@pvg:~/Desktop/DSBDA/ipcount$ hdfs dfs -chown pvg /teit/test1.txt
+hadoop@pvg:~/Desktop/DSBDA/ipcount$ hdfs dfs -ls /teit/test1.txt
+-rw-r--r--   1 pvg supergroup          0 2025-04-21 14:26 /teit/test1.txt
+hadoop@pvg:~/Desktop/DSBDA/ipcount$ hdfs dfs -chmod 744 /teit/test1.txt
+hadoop@pvg:~/Desktop/DSBDA/ipcount$ hdfs dfs -ls /teit/test1.txt
+-rwxr--r--   1 pvg supergroup          0 2025-04-21 14:26 /teit/test1.txt
+hadoop@pvg:~/Desktop/DSBDA/ipcount$ hdfs dfs -chmod 444 /teit/test1.txt
+hadoop@pvg:~/Desktop/DSBDA/ipcount$ hdfs dfs -ls /teit/test1.txt
+-r--r--r--   1 pvg supergroup          0 2025-04-21 14:26 /teit/test1.txt
+hadoop@pvg:~/Desktop/DSBDA/ipcount$ 
+
+
+------------------------------------------------------------------------------

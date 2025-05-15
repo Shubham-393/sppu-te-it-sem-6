@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>Restaurant Menu</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <!-- jQuery Mobile CDN -->
+  <link rel="stylesheet" href="https://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.css" />
+  <script src="https://code.jquery.com/jquery-1.11.3.min.js"></script>
+  <script src="https://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.js"></script>
+
+  <style>
+    .menu-img {
+      width: 40%;
+      height: auto;
+      border-radius: 10px;
+    }
+    .menu-text {
+      margin-top: 10px;
+      font-size: 16px;
+    }
+  </style>
+</head>
+
+<body>
+
+<!-- Home Page -->
+<div data-role="page" id="home">
+  <div data-role="header" class="ui-bar-b">
+    <h1>🍽️ My Restaurant Menu</h1>
+  </div>
+
+  <div data-role="content">
+    <ul data-role="listview" data-inset="true">
+      <li><a href="#pizza">Pizza</a></li>
+      <li><a href="#burger">Burger</a></li>
+      <li><a href="#pasta">Pasta</a></li>
+    </ul>
+  </div>
+</div>
+
+<!-- Pizza Page -->
+<div data-role="page" id="pizza">
+  <div data-role="header" data-add-back-btn="true">
+    <h1>Pizza</h1>
+  </div>
+  <div data-role="content">
+    <img src="https://img.freepik.com/free-photo/top-view-pepperoni-pizza-with-mushroom-sausages-bell-pepper-olive-corn-black-wooden_141793-2158.jpg?t=st=1746697605~exp=1746701205~hmac=751e5a3602033591abf1303d19fd4af4e62d95cde1c15998ce1e96ad4d8ff349&w=1380" class="menu-img" />
+    <p class="menu-text">Delicious cheesy pizza topped with fresh veggies and spices. ₹250</p>
+  </div>
+</div>
+
+<!-- Burger Page -->
+<div data-role="page" id="burger">
+  <div data-role="header" data-add-back-btn="true">
+    <h1>Burger</h1>
+  </div>
+  <div data-role="content">
+    <img src="https://img.freepik.com/free-photo/crispy-chicken-burger_23-2151950828.jpg?ga=GA1.1.488587659.1739638546&semt=ais_hybrid&w=740" class="menu-img" />
+    <p class="menu-text">Juicy burger with lettuce, tomato, and crispy patty. ₹150</p>
+  </div>
+</div>
+
+<!-- Pasta Page -->
+<div data-role="page" id="pasta">
+  <div data-role="header" data-add-back-btn="true">
+    <h1>Pasta</h1>
+  </div>
+  <div data-role="content">
+    <img src="https://img.freepik.com/free-photo/penne-pasta-tomato-sauce-with-chicken-tomatoes-wooden-table_2829-8727.jpg?ga=GA1.1.488587659.1739638546&semt=ais_hybrid&w=740" class="menu-img" />
+    <p class="menu-text">Creamy Alfredo pasta made with rich sauces. ₹200</p>
+  </div>
+</div>
+
+</body>
+</html>
+

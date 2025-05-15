@@ -1,0 +1,116 @@
+//THIS IS EASY CODE  
+
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Feedback Form</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.css">
+  <script src="https://code.jquery.com/jquery-1.12.4.min.js"></script>
+  <script src="https://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.js"></script>
+</head>
+<body>
+
+<div data-role="page" id="feedback">
+  <div data-role="header"><h1>Feedback</h1></div>
+  
+  <div data-role="content">
+    <form>
+      <label for="name">Name:</label>
+      <input type="text" id="name">
+
+      <label for="email">Email:</label>
+      <input type="email" id="email">
+
+      <label for="satisfied">Are you satisfied?</label>
+      <select id="satisfied" data-role="flipswitch">
+        <option value="no">No</option>
+        <option value="yes" selected>Yes</option>
+      </select>
+
+      <input type="submit" value="Submit" data-inline="true">
+    </form>
+  </div>
+</div>
+
+</body>
+</html> 
+
+
+<!-- 
+//This is better code
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Feedback Form</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.css">
+  <script src="https://code.jquery.com/jquery-1.12.4.min.js"></script>
+  <script src="https://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.js"></script>
+  <style>
+    .ui-header {
+      background: #a7b2f1 !important;
+      color: white !important;
+    }
+    .ui-page {
+      background: #f9f9f9 !important;
+    }
+    .ui-content {
+      padding: 20px 15px;
+    }
+    .ui-input-text, .ui-select {
+      border-radius: 8px !important;
+      margin-bottom: 15px !important;
+      border: 1px solid #ddd !important;
+    }
+    .ui-btn {
+      background: #98e29a !important;
+      color: aqua;
+      border: none !important;
+      text-shadow: none !important;
+      border-radius: 8px !important;
+      padding: 12px 0 !important;
+      margin-top: 15px !important;
+    }
+    .ui-flipswitch {
+      margin: 15px 0 !important;
+      color: yellow;
+    }
+    label {
+      font-weight: bold;
+      color: #333;
+      margin-bottom: 5px !important;
+    }
+  </style>
+</head>
+<body>
+
+<div data-role="page" id="feedback">
+  <div data-role="header">
+    <h1>Feedback</h1>
+  </div>
+  
+  <div data-role="content">
+    <form>
+      <label for="name">Your Name:</label>
+      <input type="text" id="name" placeholder="Enter your name">
+      
+      <label for="email">Email Address:</label>
+      <input type="email" id="email" placeholder="your@email.com">
+      
+      <label for="satisfied">Are you satisfied with our service?</label>
+      <select id="satisfied" data-role="flipswitch">
+        <option value="no">No</option>
+        <option value="yes" selected>Yes</option>
+      </select>
+      
+      <label for="comments">Additional Comments:</label>
+      <textarea id="comments" placeholder="Your feedback is valuable to us"></textarea>
+
+      <input type="submit" value="Submit Feedback" data-inline="true">
+    </form>
+  </div>
+</div>
+
+</body>
+</html> -->

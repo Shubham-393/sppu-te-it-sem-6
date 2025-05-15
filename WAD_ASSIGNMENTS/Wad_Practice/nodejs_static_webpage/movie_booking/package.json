@@ -1,0 +1,16 @@
+{
+  "name": "movie_booking",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "description": "A simple movie ticket booking web application",
+  "dependencies": {
+    "express": "^4.21.2"
+  }
+}

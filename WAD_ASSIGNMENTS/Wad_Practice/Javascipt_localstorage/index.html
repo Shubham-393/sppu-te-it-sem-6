@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Registration Form</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body class="bg-light">
+  <div class="container mt-5">
+    <h2 class="mb-4 text-center">User Registration</h2>
+    <form onsubmit="saveData(event)" class="border p-4 bg-white rounded">
+      <div class="mb-3">
+        <label>First Name</label>
+        <input type="text" id="fname" class="form-control" required>
+      </div>
+      <div class="mb-3">
+        <label>Last Name</label>
+        <input type="text" id="lname" class="form-control" required>
+      </div>
+      <div class="mb-3">
+        <label>Date of Birth</label>
+        <input type="date" id="dob" class="form-control" required>
+      </div>
+      <div class="mb-3">
+        <label>Gender</label><br>
+        <input type="radio" name="gender" value="Male" required> Male
+        <input type="radio" name="gender" value="Female" required> Female
+      </div>
+      <div class="mb-3">
+        <label>Mobile Number</label>
+        <input type="text" id="mobile" class="form-control" required>
+      </div>
+      <div class="mb-3">
+        <label>Email</label>
+        <input type="email" id="email" class="form-control" required>
+      </div>
+      <button type="submit" class="btn btn-primary w-100">Register</button>
+    </form>
+  </div>
+
+  <script>
+    function saveData(e) {
+      e.preventDefault();
+      const fname = document.getElementById('fname').value;
+      const lname = document.getElementById('lname').value;
+      const dob = document.getElementById('dob').value;
+      const gender = document.querySelector('input[name="gender"]:checked')?.value;
+      const mobile = document.getElementById('mobile').value;
+      const email = document.getElementById('email').value;
+
+      if (!/^\d{10}$/.test(mobile)) {
+        alert("Mobile number must be exactly 10 digits.");
+        return;
+      }
+
+      if (!/\S+@\S+\.\S+/.test(email)) {
+        alert("Please enter a valid email.");
+        return;
+      }
+
+      const user = { fname, lname, dob, gender, mobile, email };
+      const users = JSON.parse(localStorage.getItem('users') || '[]');
+      users.push(user);
+      localStorage.setItem('users', JSON.stringify(users));
+      window.location.href = "display.html";
+    }
+  </script>
+</body>
+</html>

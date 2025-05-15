@@ -1,0 +1,89 @@
+
+✅ Salesforce Mini Project: Student Course Management App
+
+Objective:
+Design and develop a custom application using Salesforce Cloud to manage student data, courses, and enrollment progress.
+
+Step-by-Step Guide
+
+1️⃣ Create Salesforce Developer Account
+- Go to: https://developer.salesforce.com/signup
+- Sign up with your name, email, and organization.
+- Verify your email and login at https://login.salesforce.com
+
+2️⃣ Create a New Lightning App
+- Click on Gear Icon → Setup
+- Search for App Manager in Quick Find → Click New Lightning App
+- App Name: StudentCourseApp
+- Developer Name: auto-filled
+- Description: Custom app to manage student course enrollment.
+- Click Next through App Options and Navigation Items.
+
+3️⃣ Create Custom Objects
+Go to Setup → Object Manager → Create → Custom Object
+
+📁 1. Student
+| Field Label     | Data Type        | Details                           |
+|----------------|------------------|-----------------------------------|
+| Name            | Text (Standard)  | Represents Student Full Name      |
+| Phone           | Phone            | Contact Number                    |
+| Email           | Email            | Unique email ID                   |
+| Enrollment Date | Date             | Date student joined the program   |
+| Gender          | Picklist         | Options: Male, Female, Other      |
+| Age             | Number (3, 0)    | No decimals, max 3 digits         |
+Enable: Allow Reports, Track Field History
+Launch New Custom Tab: Yes
+
+📁 2. Course
+| Field Label  | Data Type        | Details                          |
+|--------------|------------------|----------------------------------|
+| Course Name  | Text             | Course title                     |
+| Instructor   | Text             | Name of the instructor           |
+| Duration     | Number (2, 0)    | Duration in weeks or months      |
+| Start Date   | Date             | When course starts               |
+| End Date     | Date             | When course ends                 |
+Enable: Allow Reports, Launch Tab
+
+📁 3. Enrollment
+| Field Label     | Data Type           | Details                            |
+|----------------|---------------------|------------------------------------|
+| Student         | Lookup (Student)    | Link to Student object             |
+| Course          | Lookup (Course)     | Link to Course object              |
+| Status          | Picklist            | Values: Enrolled, Ongoing, Completed |
+| Completion %    | Percent (3, 0)      | From 0 to 100                      |
+| Enrollment Date | Date                | When student joined course         |
+This is a junction object to link Students & Courses (Many-to-Many)
+
+4️⃣ Create Tabs for Objects
+- Go to App Manager → Edit App (StudentCourseApp)
+- Add Tabs: Student, Course, Enrollment
+- Save and finish.
+
+5️⃣ Create Relationships
+- Use Lookup Relationship when creating:
+  - Enrollment → Student
+  - Enrollment → Course
+
+6️⃣ Customize Page Layouts
+- Go to Object Manager → [Object] → Page Layouts
+- Drag fields like Completion %, Status to display on form.
+- Rearrange for better usability.
+
+7️⃣ Add Sample Records
+Go to:
+- Student tab → New → Fill details
+- Course tab → New → Fill details
+- Enrollment tab → New → Link existing Student and Course
+
+8️⃣ Automation (Optional)
+Use Process Builder or Flow Builder:
+- Trigger: When Completion % = 100
+- Action: Update Status to "Completed"
+
+9️⃣ Reports and Dashboards (Optional)
+- Create report:
+  - Group by Status or Completion %
+  - Show how many students have completed each course
+
+✅ Outcome:
+A fully functional Salesforce Lightning App to manage students, courses, and their progress. You can showcase relationships, filters, automation, and reporting.

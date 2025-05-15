@@ -1,0 +1,66 @@
+<!-- 
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Registered Users</title>
+</head>
+<body>
+  <h2>Registered Users</h2>
+  <ul id="userList"></ul>
+
+  <script>
+    // Get users from local storage
+    const users = JSON.parse(localStorage.getItem('users')) || [];
+
+    // Get the list element
+    const userList = document.getElementById('userList');
+
+    // Display each user
+    if (users.length === 0) {
+      userList.innerHTML = '<li>No users registered yet.</li>';
+    } else {
+      users.forEach(user => {
+        const li = document.createElement('li');
+        li.textContent = `Username: ${user.username}, Email: ${user.email}`;
+        userList.appendChild(li);
+      });
+    }
+  </script>
+</body>
+</html> -->
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Registered Users</title>
+</head>
+<body>
+  <h2>Registered Users</h2>
+  <ul id="userList"></ul>
+
+  <script>
+    // Get users from local storage
+    const users = JSON.parse(localStorage.getItem('users')) || [];
+
+    // Get the list element
+    const userList = document.getElementById('userList');
+
+    // Display each user without password
+    if (users.length === 0) {
+      userList.innerHTML = '<li>No users registered yet.</li>';
+    } else {
+      users.forEach(user => {
+        const li = document.createElement('li');
+        li.textContent = `Username: ${user.username}, Email: ${user.email}`;
+        userList.appendChild(li);
+      });
+    }
+  </script>
+</body>
+</html>
+

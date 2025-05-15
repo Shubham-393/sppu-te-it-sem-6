@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Student Results</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        body {
+            background-color: #f8f9fa;
+            padding: 20px;
+        }
+        .table-container {
+            background-color: white;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+            padding: 20px;
+            margin-bottom: 20px;
+        }
+        .table {
+            margin-bottom: 0;
+        }
+        .table thead {
+            background-color: #343a40;
+            color: white;
+        }
+        .pass {
+            color: #28a745;
+            font-weight: bold;
+        }
+        .fail {
+            color: #dc3545;
+            font-weight: bold;
+        }
+        .cgpa-high {
+            color: #28a745;
+            font-weight: bold;
+        }
+        .cgpa-medium {
+            color: #ffc107;
+            font-weight: bold;
+        }
+        .cgpa-low {
+            color: #dc3545;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1 class="text-center mb-4">Student Results</h1>
+        
+        <div class="row">
+            <!-- Left Table - Pass/Fail -->
+            <div class="col-md-6">
+                <div class="table-container">
+                    <h3 class="text-center mb-3">Pass/Fail Status</h3>
+                    <table class="table table-bordered">
+                        <thead>
+                            <tr>
+                                <th>Student Name</th>
+                                <th>Result</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>John Doe</td>
+                                <td class="pass">Pass</td>
+                            </tr>
+                            <tr>
+                                <td>Jane Smith</td>
+                                <td class="pass">Pass</td>
+                            </tr>
+                            <tr>
+                                <td>Mike Johnson</td>
+                                <td class="fail">Fail</td>
+                            </tr>
+                            <tr>
+                                <td>Sarah Williams</td>
+                                <td class="pass">Pass</td>
+                            </tr>
+                            <tr>
+                                <td>David Brown</td>
+                                <td class="fail">Fail</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+            <!-- Right Table - CGPA -->
+            <div class="col-md-6">
+                <div class="table-container">
+                    <h3 class="text-center mb-3">CGPA Details</h3>
+                    <table class="table table-bordered">
+                        <thead>
+                            <tr>
+                                <th>Student Name</th>
+                                <th>CGPA</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>John Doe</td>
+                                <td class="cgpa-high">9.2</td>
+                            </tr>
+                            <tr>
+                                <td>Jane Smith</td>
+                                <td class="cgpa-high">8.8</td>
+                            </tr>
+                            <tr>
+                                <td>Mike Johnson</td>
+                                <td class="cgpa-low">5.5</td>
+                            </tr>
+                            <tr>
+                                <td>Sarah Williams</td>
+                                <td class="cgpa-medium">7.5</td>
+                            </tr>
+                            <tr>
+                                <td>David Brown</td>
+                                <td class="cgpa-low">5.8</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

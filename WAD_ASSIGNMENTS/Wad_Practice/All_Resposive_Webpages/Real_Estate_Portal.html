@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Real Estate Portal</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.0/font/bootstrap-icons.css">
+    <style>
+        .property-card { transition: transform 0.3s; }
+        .property-card:hover { transform: scale(1.05); }
+        .bg-estate { background-color: #2c3e50; }
+        .property-image {
+            height: 200px;
+            object-fit: cover;
+        }
+    </style>
+</head>
+<body class="bg-light">
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-estate">
+        <div class="container">
+            <a class="navbar-brand" href="#"><i class="bi bi-house-heart"></i> Dream Homes</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item"><a class="nav-link" href="#properties">Properties</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#about">About</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#contact">Contact</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Header -->
+    <header class="text-center py-5 bg-estate text-white">
+        <h1 class="display-4">Find Your Dream Home</h1>
+        <p class="lead">Premium Properties in Prime Locations</p>
+    </header>
+
+    <!-- Main Content -->
+    <div class="container my-5">
+        <div class="row g-4" id="properties">
+            <!-- Property 1 -->
+            <div class="col-md-4">
+                <div class="card property-card">
+                    <img src="https://images.unsplash.com/photo-1564013799919-ab600027ffc6?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60" 
+                         class="card-img-top property-image" alt="Luxury Villa">
+                    <div class="card-body">
+                        <h3 class="card-title">Luxury Villa</h3>
+                        <p class="card-text">
+                            <i class="bi bi-geo-alt"></i> 123 Palm Street, Beverly Hills<br>
+                            <i class="bi bi-currency-dollar"></i> Price: $2,500,000
+                        </p>
+                        <button class="btn btn-primary w-100" onclick="showContact('Luxury Villa')">Contact Agent</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Property 2 -->
+            <div class="col-md-4">
+                <div class="card property-card">
+                    <img src="https://images.unsplash.com/photo-1512917774080-9991f1c4c750?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60" 
+                         class="card-img-top property-image" alt="Modern Apartment">
+                    <div class="card-body">
+                        <h3 class="card-title">Modern Apartment</h3>
+                        <p class="card-text">
+                            <i class="bi bi-geo-alt"></i> 456 Downtown Ave, City Center<br>
+                            <i class="bi bi-currency-dollar"></i> Price: $850,000
+                        </p>
+                        <button class="btn btn-primary w-100" onclick="showContact('Modern Apartment')">Contact Agent</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Property 3 -->
+            <div class="col-md-4">
+                <div class="card property-card">
+                    <img src="https://images.unsplash.com/photo-1580587771525-78b9dba3b914?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60" 
+                         class="card-img-top property-image" alt="Family Home">
+                    <div class="card-body">
+                        <h3 class="card-title">Family Home</h3>
+                        <p class="card-text">
+                            <i class="bi bi-geo-alt"></i> 789 Suburban Lane, Green Valley<br>
+                            <i class="bi bi-currency-dollar"></i> Price: $1,200,000
+                        </p>
+                        <button class="btn btn-primary w-100" onclick="showContact('Family Home')">Contact Agent</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="bg-dark text-white text-center py-3">
+        <p class="mb-0">&copy; 2024 Dream Homes | Your Trusted Real Estate Partner</p>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+        function showContact(property) {
+            const agentInfo = {
+                name: "John Smith",
+                phone: "+1 (555) 123-4567",
+                email: "john.smith@dreamhomes.com"
+            };
+            alert(`Contact Information for ${property}:\n\nAgent: ${agentInfo.name}\nPhone: ${agentInfo.phone}\nEmail: ${agentInfo.email}`);
+        }
+    </script>
+</body>
+</html> 

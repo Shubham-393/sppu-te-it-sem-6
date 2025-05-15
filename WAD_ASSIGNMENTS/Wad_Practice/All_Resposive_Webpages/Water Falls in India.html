@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Waterfalls in India</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.0/font/bootstrap-icons.css">
+    <style>
+        .waterfall-card { transition: transform 0.3s; }
+        .waterfall-card:hover { transform: scale(1.05); background-color: rgb(138, 243, 243);}
+        .bg-waterfall { background-color: #3498db; }
+    </style>
+</head>
+<body class="bg-light">
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-waterfall">
+        <div class="container">
+            <a class="navbar-brand" href="#"><i class="bi bi-water"></i> Indian Waterfalls</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item"><a class="nav-link" href="#waterfalls">Waterfalls</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#regions">Regions</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#contact">Contact</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Header -->
+    <header class="text-center py-5 bg-waterfall text-white">
+        <h1 class="display-4">Majestic Waterfalls of India</h1>
+        <p class="lead">Nature's Spectacular Show</p>
+    </header>
+
+    <!-- Main Content -->
+    <div class="container my-5">
+        <div class="row g-4" id="waterfalls">
+            <div class="col-md-4">
+                <div class="card waterfall-card">
+                    <div class="card-body text-center">
+                        <i class="bi bi-water display-1 text-primary"></i>
+                        <h3 class="card-title">Jog Falls</h3>
+                        <p class="card-text">Karnataka's Natural Wonder</p>
+                        <button class="btn btn-primary" onclick="showInfo('Jog')">Learn More</button>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="card waterfall-card">
+                    <div class="card-body text-center">
+                        <i class="bi bi-water display-1 text-primary"></i>
+                        <h3 class="card-title">Dudhsagar Falls</h3>
+                        <p class="card-text">Goa's Milky Cascade</p>
+                        <button class="btn btn-primary" onclick="showInfo('Dudhsagar')">Learn More</button>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="card waterfall-card">
+                    <div class="card-body text-center">
+                        <i class="bi bi-water display-1 text-primary"></i>
+                        <h3 class="card-title">Athirappilly Falls</h3>
+                        <p class="card-text">Kerala's Niagara</p>
+                        <button class="btn btn-primary" onclick="showInfo('Athirappilly')">Learn More</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="bg-dark text-white text-center py-3">
+        <p class="mb-0">&copy; 2024 Indian Waterfalls | Tourism Guide</p>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+        function showInfo(waterfall) {
+            const info = {
+                'Jog': 'Height: 253m | Location: Karnataka | Best time to visit: July to January',
+                'Dudhsagar': 'Height: 310m | Location: Goa | Best time to visit: October to May',
+                'Athirappilly': 'Height: 80m | Location: Kerala | Best time to visit: June to September'
+            };
+            alert(info[waterfall]);
+        }
+    </script>
+</body>
+</html>

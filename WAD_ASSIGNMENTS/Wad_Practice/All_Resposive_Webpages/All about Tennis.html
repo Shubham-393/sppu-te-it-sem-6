@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>All About Tennis</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet"/>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.0/font/bootstrap-icons.css"/>
+  <style>
+    .tennis-card { transition: transform 0.3s; }
+    .tennis-card:hover { transform: scale(1.05); }
+    .bg-tennis { background-color: #2ecc71; }
+    .player-img { height: 200px; object-fit: cover; }
+  </style>
+</head>
+<body class="bg-light">
+
+<!-- Navbar -->
+<nav class="navbar navbar-expand-lg navbar-dark bg-tennis">
+  <div class="container">
+    <a class="navbar-brand" href="#"><i class="bi bi-trophy"></i> Tennis World</a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNav">
+      <ul class="navbar-nav ms-auto">
+        <li class="nav-item"><a class="nav-link" href="#rules">Rules</a></li>
+        <li class="nav-item"><a class="nav-link" href="#players">Players</a></li>
+        <li class="nav-item"><a class="nav-link" href="#schedule">Grand Slams</a></li>
+      </ul>
+    </div>
+  </div>
+</nav>
+
+<!-- Header -->
+<header class="text-center py-5 bg-tennis text-white">
+  <h1 class="display-4">Welcome to Tennis World</h1>
+  <p class="lead">Discover the Sport of Champions</p>
+</header>
+
+<!-- Rules Section -->
+<section class="container my-5" id="rules">
+  <h2 class="text-center mb-4">Tennis Rules</h2>
+  <ul class="list-group">
+    <li class="list-group-item">Matches can be best of 3 or 5 sets.</li>
+    <li class="list-group-item">Points: Love, 15, 30, 40, and Game.</li>
+    <li class="list-group-item">A player must win a set by 2 games.</li>
+    <li class="list-group-item">Serve alternates after every game.</li>
+    <li class="list-group-item">Tiebreak is used if a set reaches 6–6.</li>
+  </ul>
+</section>
+
+<!-- Players Section -->
+<section class="container my-5" id="players">
+  <h2 class="text-center mb-4">Famous Tennis Players</h2>
+  <div class="row g-4">
+    <div class="col-md-4">
+      <div class="card tennis-card">
+        <img src="https://media.newyorker.com/photos/63249cff39ac97c4c23ff5d0/3:2/w_2559,h_1706,c_limit/Marzorati%20-%20Federer%20Retirement%202.jpg" class="card-img-top player-img" alt="Roger Federer">
+        <div class="card-body text-center">
+          <h5 class="card-title">Roger Federer</h5>
+          <button class="btn btn-success" onclick="showAchievements('Federer')">Achievements</button>
+        </div>
+      </div>
+    </div>
+    <div class="col-md-4">
+      <div class="card tennis-card">
+        <img src="https://media.npr.org/assets/img/2023/05/19/ap23138749548572_custom-df5394be363a8d76234aeceaf5982317d842138d.jpg" class="card-img-top player-img" alt="Rafael Nadal">
+        <div class="card-body text-center">
+          <h5 class="card-title">Rafael Nadal</h5>
+          <button class="btn btn-success" onclick="showAchievements('Nadal')">Achievements</button>
+        </div>
+      </div>
+    </div>
+    <div class="col-md-4">
+      <div class="card tennis-card">
+        <img src="https://media.cnn.com/api/v1/images/stellar/prod/240119111000-01-djokovic-trees.jpg?q=w_1110,c_fill" class="card-img-top player-img" alt="Novak Djokovic">
+        <div class="card-body text-center">
+          <h5 class="card-title">Novak Djokovic</h5>
+          <button class="btn btn-success" onclick="showAchievements('Djokovic')">Achievements</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Grand Slam Schedule -->
+<section class="container my-5" id="schedule">
+  <h2 class="text-center mb-4">Grand Slam Schedule 2025</h2>
+  <div class="table-responsive">
+    <table class="table table-bordered table-striped text-center">
+      <thead class="table-success">
+        <tr>
+          <th>Tournament</th>
+          <th>Location</th>
+          <th>Dates</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Australian Open</td>
+          <td>Melbourne, Australia</td>
+          <td>Jan 13 – Jan 26</td>
+        </tr>
+        <tr>
+          <td>French Open</td>
+          <td>Paris, France</td>
+          <td>May 26 – Jun 9</td>
+        </tr>
+        <tr>
+          <td>Wimbledon</td>
+          <td>London, UK</td>
+          <td>Jul 1 – Jul 14</td>
+        </tr>
+        <tr>
+          <td>US Open</td>
+          <td>New York, USA</td>
+          <td>Aug 26 – Sep 8</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</section>
+
+<!-- Footer -->
+<footer class="bg-dark text-white text-center py-3">
+  <p class="mb-0">&copy; 2025 Tennis World | Follow us on social media</p>
+</footer>
+
+<!-- Scripts -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+<script>
+  function showAchievements(player) {
+    const data = {
+      'Federer': 'Roger Federer: 20 Grand Slam titles, 8 Wimbledon titles, Olympic gold.',
+      'Nadal': 'Rafael Nadal: 22 Grand Slam titles, King of Clay with 14 French Open wins.',
+      'Djokovic': 'Novak Djokovic: 24 Grand Slam titles, Double Career Grand Slam holder.'
+    };
+    alert(data[player]);
+  }
+</script>
+
+</body>
+</html>

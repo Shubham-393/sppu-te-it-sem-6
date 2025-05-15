@@ -1,0 +1,16 @@
+{
+  "name": "india_tourism",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "description": "A simple web application showcasing tourist places in India",
+  "dependencies": {
+    "express": "^4.18.2"
+  }
+}

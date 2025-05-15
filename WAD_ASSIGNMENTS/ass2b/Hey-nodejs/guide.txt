@@ -1,0 +1,58 @@
+Tip - Visit- 1) docker hub website 2) docs docker cli reference website
+
+--------------------------------------
+1. Write a Simple Express App (server.js)
+-----------------------------------------
+const express = require('express');
+const app = express();
+
+app.get('/', (req, res) => {
+    res.send('Hello, Docker!');
+});
+
+const PORT = 3000;
+app.listen(PORT, () => {
+    console.log(`Server running on port ${PORT}`);
+});
+
+2. Create a package.json File
+-----------------------------
+{
+  "name": "docker-express-app",
+  "version": "1.0.0",
+  "main": "server.js",
+  "dependencies": {
+    "express": "^4.18.2"
+  }
+}
+
+3. Create a Dockerfile
+----------------------
+FROM node:18
+WORKDIR /app
+COPY package*.json ./
+RUN npm install
+COPY . .
+EXPOSE 3000
+CMD ["node", "server.js"]
+
+4. Build Docker Image
+---------------------
+docker build -t tejasnavale/express-docker-app .
+
+5. Run the Express App Locally
+------------------------------
+docker run -p 3000:3000 tejasnavale/express-docker-app
+
+6. Login to Docker Hub
+----------------------
+docker login
+
+7. Push the Image to Docker Hub
+-------------------------------
+docker push tejasnavale/express-docker-app
+
+8. Pull & Run on Another Machine
+--------------------------------
+docker pull tejasnavale/express-docker-app
+docker run -p 3000:3000 tejasnavale/express-docker-app

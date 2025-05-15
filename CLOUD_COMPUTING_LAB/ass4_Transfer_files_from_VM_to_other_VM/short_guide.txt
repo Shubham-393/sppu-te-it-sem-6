@@ -1,0 +1,38 @@
+
+Quick Guide: File Transfer Between Two VMs Using `scp`
+
+✅ Step 1: Configure VirtualBox for NAT Network
+1. Open VirtualBox → File > Host Network Manager → Create NAT Network (e.g., NATNetwork).
+2. Enable DHCP.
+3. For both VMs:
+   - Go to Settings > Network
+   - Attach Adapter 1 to: NAT Network
+   - Select the NAT Network you created.
+
+✅ Step 2: Boot Both VMs & Install `net-tools`
+sudo apt update
+sudo apt install net-tools
+
+✅ Step 3: Check IP Address of Both VMs
+ifconfig
+(Note the IP under `enp0s3` or similar)
+
+✅ Step 4: Create a Simple File to Transfer
+echo "Hello from VM1!" > sample.txt
+
+✅ Step 5: Allow SSH Access (if needed)
+sudo apt install openssh-server
+sudo systemctl start ssh
+sudo systemctl enable ssh
+sudo systemctl status ssh
+
+✅ Step 6: Set Permissions (Optional)
+chmod 644 sample.txt
+
+✅ Step 7: Use `scp` to Transfer File
+scp sample.txt user@<VM2-IP>:/home/user/
+(Replace `user` and `<VM2-IP>` appropriately)
+
+✅ Step 8: Verify on VM2
+cat sample.txt
+(Output: Hello from VM1!)

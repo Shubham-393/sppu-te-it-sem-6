@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Simple Mobile Shop</title>
+    <link rel="stylesheet" href="https://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.css">
+    <script src="https://code.jquery.com/jquery-1.11.3.min.js"></script>
+    <script src="https://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.js"></script>
+    
+    <style>
+        /* Color scheme */
+        .ui-header {
+            background: #adf57e !important;
+            color: white;
+        }
+        .ui-footer {
+            background: #adf57e!important;
+            color: white;
+        }
+        #product-list li {
+            border: 2px solid #0c0500;
+            border-radius: 5px;
+            margin: 5px;
+            padding : 5px;
+            
+        }
+        .product-title { 
+            font-weight: bold;
+            color: #027df7;
+            
+        }
+        .product-price { 
+            color: #e74c3c;
+            font-weight: bold;
+        }
+        .add-to-cart {
+            background: #27ae60 !important;
+            color: white !important;
+        }
+        .remove {
+            background: #e74c3c !important;
+            color: white !important;
+        }
+        .cart-count {
+            background: #e74c3c;
+            color: white;
+            border-radius: 50%;
+            padding: 2px 6px;
+        }
+        #cart-items li {
+            border: 2px solid #0c0500;
+            border-radius: 5px;
+            margin: 5px;
+            padding : 5px;
+        }
+    </style>
+</head>
+<body>
+
+<!-- Home Page -->
+<div data-role="page" id="home">
+    <div data-role="header">
+        <h1>Mobile Shop</h1>
+        <a href="#cart" class="ui-btn-right">
+            Cart <span id="cart-badge" class="cart-count">0</span>
+        </a>
+    </div>
+    
+    <div data-role="content">
+        <ul data-role="listview" id="product-list">
+            <!-- Products added by JavaScript -->
+        </ul>
+        <hr>
+    </div>
+
+    <div data-role="footer" data-position="fixed">
+        <div data-role="navbar">
+            <ul>
+                <li><a href="#home" data-icon="home" class="ui-btn-active">Home</a></li>
+                <li><a href="#about" data-icon="info">About</a></li>
+            </ul>
+        </div>
+    </div>
+</div>
+
+<!-- Cart Page -->
+<div data-role="page" id="cart">
+    <div data-role="header">
+        <a href="#home" data-rel="back">Back</a>
+        <h1>Your Cart</h1>
+    </div>
+    
+    <div data-role="content">
+        <ul data-role="listview" id="cart-items">
+            <!-- Cart items added by JavaScript -->
+        </ul>
+        <p id="empty-cart">Cart is empty</p>
+        <br><br><hr>
+        <div id="cart-total">Total: $<span>0</span></div>
+    </div>
+</div>
+
+<!-- About Page -->
+<div data-role="page" id="about">
+    <div data-role="header">
+        <a href="#home" data-rel="back">Back</a>
+        <h1>About Us</h1>
+    </div>
+    
+    <div data-role="content">
+        <h3>Simple Mobile Shop</h3>
+        <p>This is a simple e-commerce demo using jQuery Mobile.</p>
+    </div>
+</div>
+
+<script>
+$(document).ready(function() {
+    // Only 4 simple products
+    var products = [
+        {id:1, name:"Phone", price:200},
+        {id:2, name:"Headphones", price:50},
+        {id:3, name:"Charger", price:15},
+        {id:4, name:"Case", price:10}
+    ];
+    
+    var cart = [];
+    
+    // Show products
+    function showProducts() {
+        var list = $('#product-list').empty();
+        
+        products.forEach(function(product) {
+            list.append(
+                '<li>' +
+                '<h2 class="product-title">' + product.name + '</h2>' +
+                '<p class="product-price">$' + product.price + '</p>' +
+                '<a class="add-to-cart ui-btn ui-btn-inline ui-mini ui-corner-all" data-id="' + product.id + '">' +
+                '<span class="ui-icon ui-icon-plus"></span>Add</a>' +
+                '</li>'
+            );
+        });
+        
+        list.listview('refresh');
+        
+        $('.add-to-cart').click(function() {
+            var id = $(this).data('id');
+            var product = products.find(p => p.id == id);
+            addToCart(product);
+        });
+    }
+    
+    // Add to cart
+    function addToCart(product) {
+        var item = cart.find(i => i.id == product.id);
+        if (item) item.qty++;
+        else cart.push({id:product.id, name:product.name, price:product.price, qty:1});
+        
+        updateCart();
+        $.mobile.loading('show', {
+            text: product.name + " added to cart",
+            textVisible: true,
+            textonly: false,
+            theme: "a"
+        });
+        setTimeout(function(){ $.mobile.loading('hide'); }, 1000);
+    }
+    
+    // Update cart display
+    function updateCart() {
+        // Update badge
+        var totalItems = cart.reduce((sum, item) => sum + item.qty, 0);
+        $('#cart-badge').text(totalItems);
+        
+        // Show cart items
+        var cartList = $('#cart-items').empty();
+        var total = 0;
+        
+        if (cart.length == 0) {
+            $('#empty-cart').show();
+            $('#cart-total').hide();
+        } else {
+            $('#empty-cart').hide();
+            $('#cart-total').show();
+            
+            cart.forEach(function(item) {
+                var subtotal = item.price * item.qty;
+                total += subtotal;
+                
+                cartList.append(
+                    '<li>' +
+                    '<h2>' + item.name + '</h2>' +
+                    '<p>$' + item.price + ' x ' + item.qty + ' = $' + subtotal + '</p>' +
+                    '<a class="remove ui-btn ui-btn-inline ui-mini ui-corner-all" data-id="' + item.id + '">' +
+                    '<span class="ui-icon ui-icon-delete"></span>Remove</a>' +
+                    '</li>'
+                );
+            });
+            
+            $('#cart-total span').text(total);
+        }
+        
+        cartList.listview('refresh');
+        
+        $('.remove').click(function() {
+            var id = $(this).data('id');
+            cart = cart.filter(item => item.id != id);
+            updateCart();
+        });
+    }
+    
+    // Initialize
+    showProducts();
+});
+</script>
+</body>
+</html>

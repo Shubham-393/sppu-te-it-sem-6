@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Bootstrap Icons -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.0/font/bootstrap-icons.css">
+    <style>
+        .sidebar {
+            position: fixed;
+            width: 250px;
+            height: 100vh;
+            background: #2c3e50;
+            color: white;
+            padding: 20px;
+        }
+        .main-content {
+            margin-left: 250px;
+            padding: 20px;
+        }
+        @media (max-width: 767px) {
+            .sidebar {
+                position: relative;
+                width: 100%;
+                height: auto;
+            }
+            .main-content {
+                margin-left: 0;
+            }
+        }
+        .card-body {
+            font-size: 1.2rem;
+        }
+        .card-text {
+            font-size: 1rem;
+        }
+    </style>
+</head>
+<body>
+    <!-- Mobile Toggle Button -->
+    <button class="btn btn-dark d-md-none m-2" data-bs-toggle="collapse" data-bs-target="#sidebar">
+        ☰ Menu
+    </button>
+
+    <div class="container-fluid">
+        <div class="row">
+            <!-- Sidebar -->
+            <div class="col-md-3 sidebar collapse d-md-block" id="sidebar">
+                <h4><i class="bi bi-pencil-square me-2"></i> Exam Dashboard</h4>
+                <nav class="nav flex-column mt-3">
+                    <a class="nav-link text-white" href="#"><i class="bi bi-house-door me-2"></i> Home</a>
+                    <a class="nav-link text-white" href="#"><i class="bi bi-calendar-check me-2"></i> Exam Schedule</a>
+                    <a class="nav-link text-white" href="#"><i class="bi bi-clipboard-check me-2"></i> Results</a>
+                    <a class="nav-link text-white" href="#"><i class="bi bi-person-lines-fill me-2"></i> Students</a>
+                    <a class="nav-link text-white" href="#"><i class="bi bi-file-earmark-earphones me-2"></i> Assignments</a>
+                </nav>
+            </div>
+
+            <!-- Main Content -->
+            <div class="col-md-9 main-content">
+                <h2 class="mb-4">Exam Dashboard</h2>
+                
+                <div class="row row-cols-1 row-cols-md-3 g-4">
+                    <!-- Total Students Card -->
+                    <div class="col">
+                        <div class="card bg-success text-white">
+                            <div class="card-body">
+                                <h5><i class="bi bi-person-circle me-2"></i>Total Students</h5>
+                                <p class="display-4">2,000</p>
+                                <small>↑ 5% from last semester</small>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Total Exams Completed Card -->
+                    <div class="col">
+                        <div class="card bg-primary text-white">
+                            <div class="card-body">
+                                <h5><i class="bi bi-check-circle me-2"></i>Exams Completed</h5>
+                                <p class="display-4">1,850</p>
+                                <small>↑ 10% from last semester</small>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Upcoming Exams Card -->
+                    <div class="col">
+                        <div class="card bg-warning text-dark">
+                            <div class="card-body">
+                                <h5><i class="bi bi-calendar-event me-2"></i>Upcoming Exams</h5>
+                                <p class="display-4">5</p>
+                                <small>Scheduled for next month</small>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Pending Results Card -->
+                    <div class="col">
+                        <div class="card bg-info text-white">
+                            <div class="card-body">
+                                <h5><i class="bi bi-file-earmark-text me-2"></i>Pending Results</h5>
+                                <p class="display-4">150</p>
+                                <small>Results to be released soon</small>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- New Student Registrations Card -->
+                    <div class="col">
+                        <div class="card bg-danger text-white">
+                            <div class="card-body">
+                                <h5><i class="bi bi-person-plus me-2"></i>New Registrations</h5>
+                                <p class="display-4">50</p>
+                                <small>New students this semester</small>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Exam Feedback Card -->
+                    <div class="col">
+                        <div class="card bg-secondary text-white">
+                            <div class="card-body">
+                                <h5><i class="bi bi-chat-left-text me-2"></i>Exam Feedback</h5>
+                                <p class="display-4">85%</p>
+                                <small>Positive feedback from students</small>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+    <!-- Bootstrap JS (for collapse functionality) -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

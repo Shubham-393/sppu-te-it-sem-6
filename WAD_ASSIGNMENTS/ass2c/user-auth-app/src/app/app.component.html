@@ -1,0 +1,59 @@
+<!-- <h1>User Auth App</h1>
+
+<nav>
+  <a routerLink="/register" *ngIf="!isLoggedIn">Register</a> |
+  <a routerLink="/login" *ngIf="!isLoggedIn">Login</a>
+  <a routerLink="/profile" *ngIf="isLoggedIn">Profile</a> |
+  <a *ngIf="isLoggedIn" (click)="logout()" style="cursor: pointer;">Logout</a>
+</nav>
+
+<hr />
+<router-outlet></router-outlet>
+ -->
+<!-- src/app/app.component.html -->
+<div class="container mt-4">
+  <h1 class="text-center mb-5 display-5 fw-bold text-primary">User Auth App</h1>
+
+  <nav class="nav justify-content-center gap-3 mb-5">
+    <a 
+      class="nav-link px-3 py-2 rounded text-white bg-success" 
+      routerLink="/register" 
+      *ngIf="!isLoggedIn"
+      routerLinkActive="active"
+      [routerLinkActiveOptions]="{ exact: true }"
+    >
+      Register
+    </a>
+
+    <a 
+      class="nav-link px-3 py-2 rounded text-white bg-primary" 
+      routerLink="/login" 
+      *ngIf="!isLoggedIn"
+      routerLinkActive="active"
+      [routerLinkActiveOptions]="{ exact: true }"
+    >
+      Login
+    </a>
+
+    <a 
+      class="nav-link px-3 py-2 rounded text-white bg-info" 
+      routerLink="/profile" 
+      *ngIf="isLoggedIn"
+      routerLinkActive="active"
+      [routerLinkActiveOptions]="{ exact: true }"
+    >
+      Profile
+    </a>
+
+    <a 
+      class="nav-link px-3 py-2 rounded text-white bg-danger" 
+      *ngIf="isLoggedIn" 
+      style="cursor: pointer;" 
+      (click)="logout()"
+    >
+      Logout
+    </a>
+  </nav>
+
+  <router-outlet></router-outlet>
+</div>

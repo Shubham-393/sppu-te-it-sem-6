@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SPPU TE-IT Syllabus</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.0/font/bootstrap-icons.css">
+    <style>
+        .syllabus-card { transition: transform 0.3s; }
+        .syllabus-card:hover { transform: scale(1.05); }
+        .bg-syllabus { background-color: #8e44ad; }
+    </style>
+</head>
+<body class="bg-light">
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-syllabus">
+        <div class="container">
+            <a class="navbar-brand" href="#"><i class="bi bi-book"></i> SPPU TE-IT</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item"><a class="nav-link" href="#semesters">Semesters</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#subjects">Subjects</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#contact">Contact</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Header -->
+    <header class="text-center py-5 bg-syllabus text-white">
+        <h1 class="display-4">TE-IT Syllabus Structure</h1>
+        <p class="lead">Savitribai Phule Pune University</p>
+    </header>
+
+    <!-- Main Content -->
+    <div class="container my-5">
+        <div class="row g-4" id="semesters">
+            <div class="col-md-4">
+                <div class="card syllabus-card">
+                    <div class="card-body text-center">
+                        <i class="bi bi-1-circle display-1 text-purple"></i>
+                        <h3 class="card-title">Semester V</h3>
+                        <p class="card-text">Core IT Subjects</p>
+                        <button class="btn btn-purple" onclick="showInfo('Sem5')">View Details</button>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="card syllabus-card">
+                    <div class="card-body text-center">
+                        <i class="bi bi-2-circle display-1 text-purple"></i>
+                        <h3 class="card-title">Semester VI</h3>
+                        <p class="card-text">Advanced IT Subjects</p>
+                        <button class="btn btn-purple" onclick="showInfo('Sem6')">View Details</button>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="card syllabus-card">
+                    <div class="card-body text-center">
+                        <i class="bi bi-3-circle display-1 text-purple"></i>
+                        <h3 class="card-title">Semester VII</h3>
+                        <p class="card-text">Specialization Subjects</p>
+                        <button class="btn btn-purple" onclick="showInfo('Sem7')">View Details</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="bg-dark text-white text-center py-3">
+        <p class="mb-0">&copy; 2024 SPPU TE-IT | Official Syllabus Portal</p>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+        function showInfo(semester) {
+            const info = {
+                'Sem5': 'Subjects: Data Structures, Database Management, Computer Networks, Web Development',
+                'Sem6': 'Subjects: Software Engineering, Operating Systems, Cloud Computing, Mobile Computing',
+                'Sem7': 'Subjects: Artificial Intelligence, Machine Learning, Big Data, Cyber Security'
+            };
+            alert(info[semester]);
+        }
+    </script>
+</body>
+</html>

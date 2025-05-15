@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>View Exams</title>
+</head>
+<body>
+    <h1>All Exams</h1>
+    <ul>
+        {% for exam in exams %}
+            <li>
+                <strong>{{ exam.exam_id }}:</strong> {{ exam.exam_name }} - Subject: {{ exam.subject }} - Date: {{ exam.exam_date }}
+            </li>
+        {% endfor %}
+    </ul>
+    <br>
+    <a href="/">Back to Home</a>
+</body>
+</html>

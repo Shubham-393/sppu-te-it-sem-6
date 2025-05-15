@@ -1,0 +1,96 @@
+
+=======================
+Word Count using PyHadoop
+=======================
+
+File: wordcount_mapper_reducer.txt
+
+This file contains both mapper and reducer code used in Hadoop streaming for word count,
+with comments explaining each part.
+
+-------------------------
+MAPPER CODE (mapper.py)
+-------------------------
+
+import sys
+import io
+
+# Wrap the binary stdin stream to handle text input
+input_stream = io.TextIOWrapper(sys.stdin.buffer)
+
+# Read each line from input
+for line in input_stream:
+    # Split line into individual words (default: split by whitespace)
+    words = line.split()
+
+    # For each word, emit 'word\t1' as output
+    for word in words:
+        print("%s\t%s" % (word, 1))  # Output: word<TAB>1
+
+
+--------------------------
+REDUCER CODE (reducer.py)
+--------------------------
+
+import sys
+import io
+
+# Initialize variables to track the current word and its count
+current_word = None
+current_count = 0
+word = None
+
+# Read each line from input (which is sorted and grouped by Hadoop)
+for line in sys.stdin:
+    # Split each line into word and count
+    word, count = line.split('\t', 1)
+    count = int(count)  # Convert count from string to integer
+
+    # If this word is the same as the previous word, add to its count
+    if current_word == word:
+        current_count += count
+    else:
+        # If it's a new word and not the first line, print previous word and its total count
+        if current_word:
+            print("%s\t%s" % (current_word, current_count))
+
+        # Start tracking the new word
+        current_count = count
+        current_word = word
+
+# After the loop, print the count for the last word
+if current_word == word:
+    print("%s\t%s" % (current_word, current_count))
+
+---------------------------
+Example Input (input.txt)
+---------------------------
+
+hello world
+hello hadoop
+welcome to hadoop world
+
+---------------------------
+Mapper Output (simulated)
+---------------------------
+
+hello   1
+world   1
+hello   1
+hadoop  1
+welcome 1
+to      1
+hadoop  1
+world   1
+
+---------------------------
+Reducer Final Output
+---------------------------
+
+hadoop  2
+hello   2
+to      1
+welcome 1
+world   2
+
+===========================

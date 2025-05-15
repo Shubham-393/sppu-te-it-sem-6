@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LocalStorage User Registration</title>
+</head>
+<body>
+    <h1>LocalStorage User Registration</h1>
+    <form id="userForm">
+        <input type="email" id="email" placeholder="Email" required>
+        <input type="password" id="password" placeholder="Password" required>
+        <button type="submit">Register</button>
+    </form>
+    <ul id="userList"></ul>
+
+    <script>
+        var users = JSON.parse(localStorage.getItem("users")) || [];
+        function renderUsers() {
+            document.getElementById("userList").innerHTML = users.map(u => `<li>${u}</li>`).join('');
+        }
+
+        document.getElementById("userForm").addEventListener("submit", function(e) {
+            e.preventDefault();
+            var email = document.getElementById("email").value;
+            users.push(email);
+            localStorage.setItem("users", JSON.stringify(users));
+            renderUsers();
+            this.reset();
+        });
+
+        renderUsers();
+    </script>
+</body>
+</html>
